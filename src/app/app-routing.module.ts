@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { FavoritesComponent } from './views/favorites/favorites.component';
+import { HomeComponent } from './views/home/home.component';
+
+const routes: Routes = [
+    { path: 'home', component: HomeComponent },
+    { path: 'favorites', component: FavoritesComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }
