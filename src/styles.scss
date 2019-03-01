@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "vars.scss";
 
 
 * {
@@ -8,6 +9,47 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    background-color: #F8F8F8;
+}
+
 .content-wrapper {
-    padding-top: 41px;
+    padding-top: 39px;
+}
+
+.header-content {
+    background-color: $header-color;
+    padding: 50px 0;
+    text-align: center;
+    color: #fff;
+    line-height: 30px;
+
+    h1 {
+        font-size: 40px;
+        line-height: 45px;
+    }
+
+    h3 {
+        font-size: 16px;
+        font-weight: normal;
+    }
+
+    input {
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        padding: 4px 7px;
+        width: 400px;
+    }
+}
+
+#beers-container {
+    max-width: 600px;
+    display: flex;
+    max-width: 660px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }

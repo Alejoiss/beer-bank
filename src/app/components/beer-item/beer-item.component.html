@@ -1,0 +1,11 @@
+<div class="beer-container">
+    <div class="favorite-container">
+        <i class="far fa-star" *ngIf="!isFavorite()" (click)="markFavorite()"></i>
+        <i class="fas fa-star" *ngIf="isFavorite()" (click)="markFavorite()"></i>
+    </div>
+    <div class="img-container">
+        <img [src]="beer.image_url" [alt]="beer.name">
+    </div>
+    <h2>{{ beer.name }}</h2>
+    <h3>{{ beer.tagline }}</h3>
+</div>

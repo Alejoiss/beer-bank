@@ -1,3 +1,9 @@
-<p>
-  home works!
-</p>
+<header class="header-content">
+    <h1>The Beer Bank</h1>
+    <h3>Find your favourite beer here</h3>
+    <input type="search" name="search" id="search" placeholder="Search for beer here">
+</header>
+
+<article id="beers-container">
+    <app-beer-item *ngFor="let beer of beers" [beer]="beer"></app-beer-item>
+</article>

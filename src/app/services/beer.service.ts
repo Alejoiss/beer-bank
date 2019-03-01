@@ -22,4 +22,12 @@ export class BeerService {
     getBeers(): Observable<Beer[]> {
         return this.http.get<Beer[]>(`https://api.punkapi.com/v2/beers?page=${this.page}&per_page=${this.per_page}`);
     }
+
+    getBeersByName(): Observable<Beer[]> {
+        return this.http.get<Beer[]>(`https://api.punkapi.com/v2/beers?page=${this.page}&per_page=${this.per_page}`);
+    }
+
+    getBeersById(): Observable<Beer[]> {
+        return this.http.get<Beer[]>(`https://api.punkapi.com/v2/beers?page=${this.page}&per_page=${this.per_page}`);
+    }
 }
