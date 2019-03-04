@@ -1,9 +1,16 @@
 <header class="header-content">
     <h1>The Beer Bank</h1>
     <h3>Find your favourite beer here</h3>
-    <input type="search" name="search" id="search" placeholder="Search for beer here">
+    <input type="search" name="search" id="search" placeholder="Search for beer here" 
+        (search)="searchBeer($event)" (keyup)="searchBeer($event)" [(ngModel)]="search">
 </header>
 
 <article id="beers-container">
+    <div id="loading" *ngIf="loading">
+        <i class="fas fa-spinner fa-spin fa-lg"></i>
+    </div>
     <app-beer-item *ngFor="let beer of beers" [beer]="beer"></app-beer-item>
+    <div id="not-found" *ngIf="!loading && beers && !beers.length">
+        Sorry, no beers found :(
+    </div>
 </article>

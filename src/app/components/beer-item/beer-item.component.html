@@ -1,7 +1,7 @@
 <div class="beer-container">
     <div class="favorite-container">
-        <i class="far fa-star" *ngIf="!isFavorite()" (click)="markFavorite()"></i>
-        <i class="fas fa-star" *ngIf="isFavorite()" (click)="markFavorite()"></i>
+        <i class="far fa-star" *ngIf="!isFavorite()" (click)="addFavorite()"></i>
+        <i class="fas fa-star" *ngIf="isFavorite()" (click)="removeFavorite()"></i>
     </div>
     <div class="img-container">
         <img [src]="beer.image_url" [alt]="beer.name">
