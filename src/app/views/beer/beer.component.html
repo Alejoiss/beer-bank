@@ -1,0 +1,77 @@
+<header class="header-content" *ngIf="beer">
+    <h1>{{ beer.name }}</h1>
+    <h3>{{ beer.tagline }}</h3>
+</header>
+
+<article id="beers-container">
+    <div id="loading" *ngIf="loading">
+        <i class="fas fa-spinner fa-spin fa-lg"></i>
+    </div>
+
+    <div *ngIf="beer">
+        <img [src]="beer.image_url" [alt]="beer.name" class="left">
+        <ul>
+            <li>
+                <strong>Description: </strong>
+                <span>{{ beer.description }}</span>
+            </li>
+            <li>
+                <strong>First brewed: </strong>
+                <span>{{ beer.first_brewed }}</span>
+            </li>
+            <li>
+                <strong>Abv: </strong>
+                <span>{{ beer.abv }}</span>
+            </li>
+            <li>
+                <strong>Ibu: </strong>
+                <span>{{ beer.ibu }}</span>
+            </li>
+            <li>
+                <strong>Target FG: </strong>
+                <span>{{ beer.target_fg }}</span>
+            </li>
+            <li>
+                <strong>Target OG: </strong>
+                <span>{{ beer.target_og }}</span>
+            </li>
+            <li>
+                <strong>Ebc: </strong>
+                <span>{{ beer.ebc }}</span>
+            </li>
+            <li>
+                <strong>Srm: </strong>
+                <span>{{ beer.srm }}</span>
+            </li>
+            <li>
+                <strong>PH: </strong>
+                <span>{{ beer.ph }}</span>
+            </li>
+            <li>
+                <strong>Volume: </strong>
+                <span>{{ beer.volume.value }} {{ beer.volume.unit }}</span>
+            </li>
+            <li>
+                <strong>Boil volume: </strong>
+                <span>{{ beer.boil_volume.value }} {{ beer.boil_volume.unit }}</span>
+            </li>
+            <li>
+                <strong>Brewer tips: </strong>
+                <span>{{ beer.brewers_tips }} </span>
+            </li>
+            <li>
+                <strong>Food pairing: </strong>
+                <ul>
+                    <li *ngFor="let food of beer.food_pairing">{{ food }}</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Ingredients: </strong>
+                <ul>
+                    <li *ngFor="let malt of beer.ingredients.malt">{{ malt.name }} ({{ malt.amount.value }} {{ malt.amount.unit }})</li>
+                    <li *ngFor="let hop of beer.ingredients.hops">{{ hop.name }} ({{ hop.amount.value }} {{ hop.amount.unit }})</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</article>

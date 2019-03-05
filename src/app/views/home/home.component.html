@@ -5,7 +5,7 @@
         (search)="searchBeer($event)" (keyup)="searchBeer($event)" [(ngModel)]="search">
 </header>
 
-<article id="beers-container">
+<article id="beers-container" #beersContainer (scroll)="loadMoreBeers(beersContainer)">
     <div id="loading" *ngIf="loading">
         <i class="fas fa-spinner fa-spin fa-lg"></i>
     </div>

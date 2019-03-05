@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BeerService } from './services/beer.service';
 import { FavoritesComponent } from './views/favorites/favorites.component';
 import { HomeComponent } from './views/home/home.component';
+import { BeerComponent } from './views/beer/beer.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './views/home/home.component';
         HomeComponent,
         FavoritesComponent,
         NavbarComponent,
-        BeerItemComponent
+        BeerItemComponent,
+        BeerComponent
     ],
     imports: [
         CommonModule,
