@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Beer } from 'src/app/models/beer';
 
 import { BeerService } from './../../services/beer.service';
+import { InfiniteScrollService } from './../../services/infinite-scroll.service';
 
 @Component({
     selector: 'app-home',
@@ -10,23 +11,25 @@ import { BeerService } from './../../services/beer.service';
 })
 export class HomeComponent implements OnInit {
 
-    beers: Beer[];
+    beers: Beer[] = [];
     search: string;
     loading = false;
 
     constructor(
-        private beerService: BeerService
+        private beerService: BeerService,
+        private infiniteScrollService: InfiniteScrollService
     ) { }
 
     ngOnInit() {
-        this.getBeers();
+        this.getBeers(1);
+        this.subscribeInfiniteScroll();
     }
 
-    getBeers() {
+    getBeers(page?) {
         this.loading = true;
-        this.beerService.getBeers(1)
+        this.beerService.getBeers(page)
             .subscribe(beers => {
-                this.beers = beers;
+                this.beers = this.beers.concat(beers);
                 this.loading = false;
             });
     }
@@ -41,8 +44,18 @@ export class HomeComponent implements OnInit {
                         this.loading = false;
                     });
             } else {
+                this.beers = [];
                 this.getBeers();
             }
         }
+    }
+
+    subscribeInfiniteScroll() {
+        this.infiniteScrollService.scrollPosition
+            .subscribe(position => {
+                if (position === 'end' && !this.search) {
+                    this.getBeers();
+                }
+            });
     }
 }
